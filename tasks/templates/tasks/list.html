@@ -1,3 +1,4 @@
+{% load static %}
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -51,6 +52,13 @@
 </style>
 
 <body>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+      
+          </div>
+        </div>
+      </div>
     <div class="center-column">
         <h3>To Do</h3>
         
@@ -75,11 +83,27 @@
                         </span>
                         {% endif %}
                     </div>
-                    <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
-                    
+                    <button type="button" data-id="{% url 'update_task' task.id %}" class="update-task btn btn-sm btn-info">Update</button>
+
                     <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+
                 </div>
             {% endfor %}
         </div>
     </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>   
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    
+        // update the task
+        $(".update-task").each(function () {$(this).modalForm({formURL: $(this).data('id')});});
+    
+    });
+</script>
 </body>

@@ -84,9 +84,7 @@
                         {% endif %}
                     </div>
                     <button type="button" data-id="{% url 'update_task' task.id %}" class="update-task btn btn-sm btn-info">Update</button>
-
-                    <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
-
+                    <button type="button" data-id="{% url 'delete' task.id %}" class="delete-task btn btn-sm btn-danger">Remove</button>
                 </div>
             {% endfor %}
         </div>
@@ -103,6 +101,11 @@
     
         // update the task
         $(".update-task").each(function () {$(this).modalForm({formURL: $(this).data('id')});});
+
+        // delete task
+        $(".delete-task").each(function () {
+            $(this).modalForm({formURL: $(this).data('id')});
+        });
     
     });
 </script>

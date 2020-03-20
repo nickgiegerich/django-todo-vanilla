@@ -63,7 +63,11 @@
     
         <div class="modal-body">
             <div class="form-group{% if field.errors %} invalid {% endif %}">
-                {{form}}
+                <p>Title:</p>
+                    <span>{{form.title}}</span>
+                <p>Description:</p>
+                    <span>{{form.descr}}</span>
+                
                 <!-- <input type="submit" name="Update Task"> -->
             </div>
         </div>

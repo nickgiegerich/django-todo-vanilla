@@ -6,7 +6,8 @@ from bootstrap_modal_forms.forms import BSModalForm
 
 
 class TaskForm(forms.ModelForm):
-    title = forms.CharField(widget = forms.TextInput(attrs = {'placeholder':'Add new task...'}))
+    title = forms.CharField(widget = forms.TextInput(attrs = {'placeholder':'Task Title...'}))
+    descr = forms.CharField(widget = forms.Textarea(attrs = {'rows':4, 'cols':40}))
 
     class Meta:
         model = Task

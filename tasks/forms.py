@@ -7,7 +7,6 @@ from bootstrap_modal_forms.forms import BSModalForm
 
 class TaskForm(forms.ModelForm):
     title = forms.CharField(widget = forms.TextInput(attrs = {'placeholder':'Task Title...'}))
-    descr = forms.CharField(widget = forms.Textarea(attrs = {'rows':4, 'cols':40}))
 
     class Meta:
         model = Task
@@ -21,4 +20,11 @@ class EditTaskForm(BSModalForm):
 class DeleteTaskForm(BSModalForm):
     class Meta:
         model = Task
+        fields = '__all__'
+
+class Line(BSModalForm):
+    line = forms.CharField(widget = forms.TextInput(attrs = {'placeholder':'detail...'}))
+
+    class Meta:
+        model = TaskLine
         fields = '__all__'

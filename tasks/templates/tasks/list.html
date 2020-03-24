@@ -84,6 +84,7 @@
                         </span>
                         {% endif %}
                     </div>
+                    <a href="{% url 'view_task_line' task.id %}">View</a>
                     <button type="button" data-id="{% url 'update_task' task.id %}" class="update-task btn btn-sm btn-info">Update</button>
                     <button type="button" data-id="{% url 'delete' task.id %}" class="delete-task btn btn-sm btn-danger">Remove</button>
                 </div>

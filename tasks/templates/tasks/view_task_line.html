@@ -1,0 +1,16 @@
+<h1>{{ task }}</h1>
+<ul>
+{% for line in taskline %}
+    <li>{{line.line}}</li>
+{% endfor %}
+</ul>
+
+
+
+
+{% for task in task_line %}
+<h3>{{task.title}}</h3> 
+    {% for line in task.taskline.all %}
+        <p>{{line.line}}</p>
+    {% endfor %}
+{% endfor %}

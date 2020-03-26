@@ -13,7 +13,7 @@ class Task(models.Model):
 
 
 class TaskLine(models.Model):
-        task = models.ForeignKey(Task, related_name='linetask', on_delete=models.CASCADE)
+        task = models.ForeignKey(Task, on_delete=models.CASCADE)
         line = models.name = models.CharField(max_length=200)
 
         def __str__(self):

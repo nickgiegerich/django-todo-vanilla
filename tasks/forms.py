@@ -22,9 +22,7 @@ class DeleteTaskForm(BSModalForm):
         model = Task
         fields = '__all__'
 
-class Line(BSModalForm):
-    line = forms.CharField(widget = forms.TextInput(attrs = {'placeholder':'detail...'}))
-
+class LineForm(ModelForm):
     class Meta:
         model = TaskLine
         fields = '__all__'

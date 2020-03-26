@@ -48,6 +48,14 @@
         background-color: #ffae19;
         border-color: #e59400;
     }
+    .btn-dark { 
+        background-color: #6fcb9f;
+        border-color: #6fcb9f;
+    }
+    .btn-dark:hover { 
+        background-color: #96e7c0;
+        border-color: #96e7c0;
+    }
  
 </style>
 
@@ -84,7 +92,7 @@
                         </span>
                         {% endif %}
                     </div>
-                    <a href="{% url 'view_task_line' task.id %}">View</a>
+                    <button type="button" data-id="{% url 'view_task_line' task.id %}" class="view-task btn btn-sm btn-dark">Details</button>
                     <button type="button" data-id="{% url 'update_task' task.id %}" class="update-task btn btn-sm btn-info">Update</button>
                     <button type="button" data-id="{% url 'delete' task.id %}" class="delete-task btn btn-sm btn-danger">Remove</button>
                 </div>
@@ -100,9 +108,16 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+
+        // view the task
+        $(".view-task").each(function () {
+            $(this).modalForm({formURL: $(this).data('id')});
+        });
     
         // update the task
-        $(".update-task").each(function () {$(this).modalForm({formURL: $(this).data('id')});});
+        $(".update-task").each(function () {
+            $(this).modalForm({formURL: $(this).data('id')});
+        });
 
         // delete task
         $(".delete-task").each(function () {

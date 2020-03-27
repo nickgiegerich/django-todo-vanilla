@@ -39,9 +39,14 @@ def updateTaskLine(request, pk):
 
     if request.method == 'POST':
         form = LineForm(request.POST, instance=line)
+        print(form)
+        
         if form.is_valid():
+            print('it is valid')
             form.save()
             return redirect('/')
+        else:
+            print(form.errors)
     
     context = {'form':form}
 

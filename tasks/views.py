@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 
@@ -39,10 +39,8 @@ def updateTaskLine(request, pk):
 
     if request.method == 'POST':
         form = LineForm(request.POST, instance=line)
-        print(form)
         
         if form.is_valid():
-            print('it is valid')
             form.save()
             return redirect('/')
         else:
